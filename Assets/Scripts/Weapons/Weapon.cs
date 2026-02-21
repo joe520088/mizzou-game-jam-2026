@@ -27,7 +27,7 @@ public class Weapon : MonoBehaviour
         weaponTransform.rotation = Quaternion.Euler(0f, 0f, angle + offset);
     }
 
-    protected void TryAttack()
+    public void TryAttack()
     {
         if (Time.time >= lastAttackTime + attackCooldown)
         {

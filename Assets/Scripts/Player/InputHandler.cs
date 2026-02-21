@@ -8,6 +8,8 @@ public class InputHandler : MonoBehaviour
     public Vector2 MoveInput { get; private set; }
     public Vector2 MousePosition { get; private set; }
     public event Action OnAttackPerformed;
+    private Weapon equippedWeapon;
+    public GameObject starterWeaponPrefab;
 
     private void Awake()
     {
@@ -20,6 +22,23 @@ public class InputHandler : MonoBehaviour
         controls.Player.Look.performed += ctx => MousePosition = ctx.ReadValue<Vector2>();  
 
         controls.Player.Attack.performed += ctx => OnAttackPerformed?.Invoke();
+        controls.Player.Attack.performed += ctx => equippedWeapon?.TryAttack();
+    }
+
+    private void Start()
+    {
+        equippedWeapon = GetComponentInChildren<Weapon>();
+
+        // If no weapon found, spawn the starter a
+        if (equippedWeapon == null)
+        {
+            Debug.Log("No weapon found, spawning starter axe!");
+            // You'll drag your Axe prefab into this slot in the Inspector
+            equippedWeapon = Instantiate(starterWeaponPrefab, transform.position, Quaternion.identity)
+                             .GetComponent<Weapon>();
+            equippedWeapon.transform.SetParent(transform);
+        }
+
     }
 
     private void OnEnable()
