@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1904ede916a0d4539be28e3cdbea425f, type: 3}
+  m_Name: MobStats_Heavy
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Mobs.MobStatsSO
+  mobType: 2
+  maxHealth: 200
+  moveSpeed: 1
+  attackDamage: 50
+  detectionRadius: 5
+  wanderSpeedMult: 0.6
+  wanderChangeInterval: 1.25
+  idleMinTime: 0.6
+  idleMaxTime: 1.6
+  idleChanceOnWanderPick: 0.25
