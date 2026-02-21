@@ -271,6 +271,7 @@ GameObject:
   - component: {fileID: 1220246801}
   - component: {fileID: 1220246806}
   - component: {fileID: 1220246807}
+  - component: {fileID: 1220246808}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -290,7 +291,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ded02b434afccfd42b210d807dc976a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  speed: 5
   animator: {fileID: 1220246807}
 --- !u!114 &1220246802
 MonoBehaviour:
@@ -304,6 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f765a46369bf694db784ac039ff27f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputHandler
+  starterWeaponPrefab: {fileID: 0}
 --- !u!50 &1220246803
 Rigidbody2D:
   serializedVersion: 5
@@ -439,6 +440,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1220246808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220246799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 571a253a7bf87a24e9c884643968f6a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  stats:
+    baseHealth: 100
+    baseMoveSpeed: 5
+    baseAttSpeed: 1
+    baseStrength: 10
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

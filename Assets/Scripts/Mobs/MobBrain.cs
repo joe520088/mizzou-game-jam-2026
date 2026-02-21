@@ -27,7 +27,7 @@ namespace Game.Mobs
         private void Update()
         {
             // Transition logic
-            if (chase != null && chase.IsTargetInRange(out _))
+            if (chase != null && chase.TargetInRange(out _))
                 state = State.Chase;
             else
                 state = State.Wander;

@@ -30,14 +30,14 @@ public class InputHandler : MonoBehaviour
         equippedWeapon = GetComponentInChildren<Weapon>();
 
         // If no weapon found, spawn the starter a
-        if (equippedWeapon == null)
-        {
-            Debug.Log("No weapon found, spawning starter axe!");
-            // You'll drag your Axe prefab into this slot in the Inspector
-            equippedWeapon = Instantiate(starterWeaponPrefab, transform.position, Quaternion.identity)
-                             .GetComponent<Weapon>();
-            equippedWeapon.transform.SetParent(transform);
-        }
+        // if (equippedWeapon == null)
+        // {
+        //     Debug.Log("No weapon found, spawning starter axe!");
+        //     // You'll drag your Axe prefab into this slot in the Inspector
+        //     equippedWeapon = Instantiate(starterWeaponPrefab, transform.position, Quaternion.identity)
+        //                      .GetComponent<Weapon>();
+        //     equippedWeapon.transform.SetParent(transform);
+        // }
 
     }
 

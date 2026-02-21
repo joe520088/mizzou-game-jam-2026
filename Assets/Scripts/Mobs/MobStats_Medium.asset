@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Mobs.MobStatsSO
   mobType: 1
   maxHealth: 150
-  moveSpeed: 3
+  moveSpeed: 2
   attackDamage: 25
   detectionRadius: 5
   wanderSpeedMult: 0.6
