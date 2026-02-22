@@ -109,7 +109,8 @@ public class Hand : MonoBehaviour
         {
             if (heldItem == heldItems[i])
             {
-                heldItems[i] = null;           
+                heldItems[i] = null;
+                heldItem.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 0);
 
                 inventory.updateInventory();
             }
