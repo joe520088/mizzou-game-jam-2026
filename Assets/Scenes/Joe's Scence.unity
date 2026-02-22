@@ -386,6 +386,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 131840492}
+  - {fileID: 1731824763}
   m_Father: {fileID: 871887135}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1012886916
@@ -483,15 +484,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1012886915}
     m_Modifications:
     - target: {fileID: 4924538159491362868, guid: 8b8a334234c4347e9af301b033ae6dc2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.322
+      value: -1.64545
       objectReference: {fileID: 0}
     - target: {fileID: 4924538159491362868, guid: 8b8a334234c4347e9af301b033ae6dc2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.331
+      value: -0.15992984
       objectReference: {fileID: 0}
     - target: {fileID: 4924538159491362868, guid: 8b8a334234c4347e9af301b033ae6dc2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -751,6 +752,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pistol
       objectReference: {fileID: 0}
+    - target: {fileID: 5410666408287866476, guid: 612583ce832d9437b993a46ace21bfd3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -764,5 +769,4 @@ SceneRoots:
   - {fileID: 450370962}
   - {fileID: 5651341928807596194}
   - {fileID: 1477643787}
-  - {fileID: 1731824760}
   - {fileID: 1819541120}
