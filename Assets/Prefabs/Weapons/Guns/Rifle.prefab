@@ -58,7 +58,7 @@ Transform:
   m_GameObject: {fileID: 5410666408287866476}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.82, y: -0.43, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -136,12 +136,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 993f5011ee1ce4207baee010128b67af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Rifle
-  weaponTransform: {fileID: 0}
+  weaponTransform: {fileID: 4924538159491362868}
   offset: 0
   damage: 10
   attackCooldown: 0.5
   shotPoint: {fileID: 8293114439906692179}
-  projectilePrefab: {fileID: 0}
+  projectilePrefab: {fileID: 6569318652320664890, guid: 3c326816269194f0ca4e56127744e17f, type: 3}
   projectileSpeed: 10
   magazineSize: 30
   reloadTime: 2.5

@@ -34,6 +34,7 @@ public class Hand : MonoBehaviour
         if (heldItem != null)
         {
             Grab(heldItem);
+            Equip(0);
         }
     }
 
@@ -46,9 +47,6 @@ public class Hand : MonoBehaviour
     public void Update()
     {
         if (inputHandler == null) return;
-
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(inputHandler.MousePosition);
-        mousePos.z = 0f;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -81,15 +79,30 @@ public class Hand : MonoBehaviour
     {
         if (choice < 0 || choice >= heldItems.Length) return;
 
+
         if (heldItem != null)
         {
             heldItem.SetActive(false);
+
+            var weapon = AccessWeaponClass(heldItem);
+
+            if (weapon != null)
+            {
+                weapon.isEquipped = false;
+            }
         }
 
         if (heldItems[choice] != null)
         {
             heldItem = heldItems[choice];
             heldItem.SetActive(true);
+
+            var weapon = AccessWeaponClass(heldItem);
+
+            if (weapon != null)
+            {
+                weapon.isEquipped = true;
+            }
 
             heldItem.transform.SetParent(this.transform);
             heldItem.transform.localPosition = Vector3.zero;
@@ -109,6 +122,13 @@ public class Hand : MonoBehaviour
         {
             if (heldItem == heldItems[i])
             {
+                var weapon = AccessWeaponClass(heldItems[i]);
+
+                if (weapon != null)
+                {
+                    weapon.isEquipped = false;
+                }
+
                 heldItems[i] = null;
                 heldItem.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 0);
 
@@ -130,5 +150,41 @@ public class Hand : MonoBehaviour
             // Ensure Z-offset stays consistent
             heldItem.transform.localPosition = new Vector3(0, 0, -0.1f);
         }
+    }
+
+    public Weapon AccessWeaponClass(GameObject targetObject)
+    {
+
+
+        // 1. Check if the GameObject itself exists
+        if (targetObject == null)
+        {
+            Debug.LogError("[Lookup] The target GameObject is null.");
+            return null; ;
+        }
+
+        targetObject = targetObject.transform.GetChild(0).gameObject;
+
+        if (!targetObject.TryGetComponent<Weapon>(out Weapon weaponComponent))
+        {
+            Debug.LogWarning($"[Guard] Object '{targetObject.name}' does not have a script inheriting from Weapon or Gun.");
+            return null;
+        }
+
+        // 2. Fetch the component using the Grandparent class name
+        // Even if only 'Pistol' is attached, this will find it.
+        weaponComponent = targetObject.GetComponent<Weapon>();
+
+        // 3. Rigorous check to see if the script exists
+        if (weaponComponent != null)
+        {
+            return weaponComponent;
+        }
+        else
+        {
+            Debug.LogError($"[Failure] No script inheriting from 'Weapon' was found on {targetObject.name}.");
+        }
+
+        return null;
     }
 }

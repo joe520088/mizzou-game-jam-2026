@@ -3,9 +3,11 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     public Transform weaponTransform;
+    public bool isEquipped = false;
     public float offset;
     public float damage = 10f;
     public float attackCooldown = 0.5f;
+    public Hand hand;
 
     protected float lastAttackTime;
     protected InputHandler inputHandler;
@@ -17,11 +19,16 @@ public class Weapon : MonoBehaviour
 
         if (inputHandler == null)
             inputHandler = FindObjectOfType<InputHandler>();
+
+        if (hand == null) hand = GetComponentInChildren<Hand>();
     }
 
     protected virtual void Update()
     {
-        RotateTowardMouse();
+        if (isEquipped)
+        {
+            RotateTowardMouse();
+        }
     }
 
     void RotateTowardMouse()

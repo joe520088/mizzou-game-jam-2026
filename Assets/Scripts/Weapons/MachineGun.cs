@@ -3,16 +3,24 @@ using UnityEngine;
 public class AutoGun : Gun
 {
     public float fireRate = 0.1f;
-    private float nextFireTime = 0f;
+    private float timer = 0f;
 
     protected override void Update()
     {
-        base.Update();
-
-        if (inputHandler.IsAttackHeld && Time.time >= nextFireTime)
+        if (isEquipped == false)
         {
-            nextFireTime = Time.time + fireRate;
+            return;
+        }
+
+        base.Update();
+        timer += Time.deltaTime;
+
+        if(inputHandler.IsAttackHeld && timer >= fireRate)
+        {
+            Debug.Log("TRIGGERED BULLET SPAWN");
+
             SpawnBullet("MachineGun");
+            timer = 0f;
         }
     }
 }
