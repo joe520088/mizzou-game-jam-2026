@@ -8,18 +8,27 @@ public class Weapon : MonoBehaviour
     public float attackCooldown = 0.5f;
 
     protected float lastAttackTime;
+    protected InputHandler inputHandler;
 
-    void Update()
+    protected virtual void Start()
+    {
+        // Try parent first, if not found search the whole scene
+        inputHandler = GetComponentInParent<InputHandler>();
+
+        if (inputHandler == null)
+            inputHandler = FindObjectOfType<InputHandler>();
+    }
+
+    protected virtual void Update()
     {
         RotateTowardMouse();
-
-        if (Input.GetMouseButtonDown(0))
-            TryAttack();
     }
 
     void RotateTowardMouse()
     {
-        Vector3 mousePos = Input.mousePosition;
+        if (inputHandler == null) return;
+
+        Vector3 mousePos = inputHandler.MousePosition;
         mousePos.z = Camera.main.nearClipPlane;
         Vector3 worldMouse = Camera.main.ScreenToWorldPoint(mousePos);
         Vector3 displacement = weaponTransform.position - worldMouse;
@@ -36,7 +45,6 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    // Virtual means child classes can override this
     protected virtual void Attack()
     {
         Debug.Log("Base weapon attack!");

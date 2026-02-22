@@ -2,19 +2,30 @@ using UnityEngine;
 
 public class Axe : Weapon
 {
-    public float axeRange = 1.5f;
+    private SpriteRenderer sr;
+    private Transform playerTransform;
+    private AxeSwingAttack swingAttack;
 
-    protected override void Attack()
+    protected override void Start()
     {
-        Debug.Log("Axe swings!");
-
-        Collider2D[] hits = Physics2D.OverlapCircleAll(weaponTransform.position, axeRange);
-        foreach (Collider2D hit in hits)
-        {
-            if (hit.CompareTag("Enemy"))
-            {
-                Debug.Log("Hit an enemy!");
-            }
-        }
+        base.Start();
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        sr = GetComponent<SpriteRenderer>();
+        swingAttack = GetComponent<AxeSwingAttack>();
     }
+
+    protected override void Update()
+    {
+        // AxeSwingAttack handles all positioning now
+        HandleSortingOrder();
+    }
+
+    void HandleSortingOrder()
+    {
+        if (sr == null || playerTransform == null || inputHandler == null) return;
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(inputHandler.MousePosition);
+        sr.sortingOrder = mousePos.x >= playerTransform.position.x ? 2 : 0;
+    }
+
+    protected override void Attack() { }
 }
