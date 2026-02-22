@@ -16,9 +16,8 @@ public class UIInventory : MonoBehaviour
     public void updateInventory()
     {
         if (hand.heldItems == null) { return; }
-        for (int i = 0; i < hand.heldItems.Length; i++)
+        for (int i = 0; i < 4; i++)
         {
-            Debug.Log(ItemSlots[i]);
             if (hand.heldItems[i] != null)
             {
                 SpriteRenderer sr = hand.heldItems[i].GetComponentInChildren<SpriteRenderer>(true);
@@ -27,6 +26,9 @@ public class UIInventory : MonoBehaviour
                     ItemSlots[i].sprite = sr.sprite;
                     ItemSlots[i].color = Color.white;
                 }
+            } else
+            {
+                ItemSlots[i].color = new Color(1, 1, 1, 0);
             }
         }
     }
