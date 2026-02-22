@@ -25,7 +25,7 @@ public class Pistol : Gun
 
         currentAmmo--;
         Debug.Log($"Pistol fired! Ammo: {currentAmmo}/{magazineSize}");
-        SpawnBullet();
+        SpawnBullet("Pistol");
     }
 
     private System.Collections.IEnumerator Reload()

@@ -5,6 +5,7 @@ public class Gun : Weapon
     public Transform shotPoint;
     public GameObject projectilePrefab;
     public float projectileSpeed = 10f;
+    private AudioManager audioManager;
 
     protected override void Start()
     {
@@ -17,7 +18,7 @@ public class Gun : Weapon
         base.Update();
     }
 
-    protected void SpawnBullet()
+    protected void SpawnBullet(string soundName)
     {
         if (projectilePrefab == null) { Debug.LogWarning("Missing projectile prefab on Gun!"); return; }
         if (shotPoint == null) { Debug.LogWarning("Missing shot point on Gun!"); return; }
@@ -29,6 +30,18 @@ public class Gun : Weapon
         shotPoint.rotation = Quaternion.Euler(0, 0, angle);
 
         GameObject bullet = Instantiate(projectilePrefab, shotPoint.position, shotPoint.rotation);
+        
+        if (!string.IsNullOrEmpty(soundName))
+        {
+            if (audioManager == null)
+                audioManager = FindObjectOfType<AudioManager>();
+
+            if (audioManager != null)
+                audioManager.Play(soundName);
+            else
+                Debug.LogWarning("AudioManager not found in the scene!");
+        }
+
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         if (rb != null)
             rb.linearVelocity = direction * projectileSpeed;
@@ -38,6 +51,6 @@ public class Gun : Weapon
 
     protected override void Attack()
     {
-        SpawnBullet();
+        SpawnBullet("Rifle");
     }
 }

@@ -51,3 +51,21 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
+  - name: Rifle
+    clip: {fileID: 8300000, guid: 927a246fca2da452cad5a331cbfcfbed, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Pistol
+    clip: {fileID: 8300000, guid: ca661df7b53b9492bb70974e36edf5c9, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MachineGun
+    clip: {fileID: 8300000, guid: d4d9b5b4fde0548dfb15190fae27f1b2, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

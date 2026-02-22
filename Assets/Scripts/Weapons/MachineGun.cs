@@ -12,7 +12,7 @@ public class AutoGun : Gun
         if (inputHandler.IsAttackHeld && Time.time >= nextFireTime)
         {
             nextFireTime = Time.time + fireRate;
-            SpawnBullet();
+            SpawnBullet("MachineGun");
         }
     }
 }
