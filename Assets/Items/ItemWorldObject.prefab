@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36cec4d41599cc043911d76755e4be4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemWorldObject
-  itemData: {fileID: 0}
+  minSwitchTime: 0.3
+  maxSwitchTime: 1.5
 --- !u!65 &8894811541579165434
 BoxCollider:
   m_ObjectHideFlags: 0
