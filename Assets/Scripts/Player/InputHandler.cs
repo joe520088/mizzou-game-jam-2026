@@ -22,9 +22,6 @@ public class InputHandler : MonoBehaviour
         controls.Player.Move.canceled += ctx => MoveInput = Vector2.zero;
 
         controls.Player.Look.performed += ctx => MousePosition = ctx.ReadValue<Vector2>();  
-
-        controls.Player.Attack.performed += ctx => OnAttackPerformed?.Invoke();
-        controls.Player.Attack.performed += ctx => equippedWeapon?.TryAttack();
     }
 
     private void Start()

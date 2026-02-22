@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cdb4bca218360f468d59382c83f27a1, type: 3}
   m_Name: Bandage
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemName: 
+  itemName: Bandage
   icon: {fileID: 0}
   prefab: {fileID: 4069592776203475526, guid: 53a96ad3600413c4f906a3ae44894f77, type: 3}
   value: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cdb4bca218360f468d59382c83f27a1, type: 3}
   m_Name: HealthStim
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemName: 
+  itemName: HealthStim
   icon: {fileID: 0}
   prefab: {fileID: 8924646168781609106, guid: ba58473ca83652d4aaef29c3eda0d810, type: 3}
   value: 0

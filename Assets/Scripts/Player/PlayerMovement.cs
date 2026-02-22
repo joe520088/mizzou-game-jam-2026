@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private InputHandler input;
     private bool wasRunning = false;
+    private Camera cam;
 
     void Start()
     {
@@ -49,7 +50,12 @@ public class PlayerMovement : MonoBehaviour
 
     void FlipTowardMouse()
     {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(input.MousePosition);
+        if (cam == null)
+        {
+            cam = Camera.main;
+        }
+
+        Vector3 mousePos = cam.ScreenToWorldPoint(input.MousePosition);
     
         if (mousePos.x < transform.position.x)
         {

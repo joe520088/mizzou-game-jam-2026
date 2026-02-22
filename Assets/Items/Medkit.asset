@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cdb4bca218360f468d59382c83f27a1, type: 3}
   m_Name: Medkit
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemName: 
+  itemName: Medkit
   icon: {fileID: 0}
   prefab: {fileID: 5903581654209903624, guid: 8b8d0706ce598c842880dfb1ad57e41f, type: 3}
   value: 0
