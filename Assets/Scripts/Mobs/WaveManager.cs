@@ -5,25 +5,43 @@ public class WaveManager : MonoBehaviour
 {
     public static WaveManager Instance { get; private set; }
 
-    private enum WaveState { Intermission, Spawning, Fighting }
+    public enum WaveState { Intermission, Spawning, Fighting }
+    [Header("Runtime (Read Only)")]
     [SerializeField] private WaveState state = WaveState.Intermission;
 
     [Header("Wave")]
     [Tooltip("Starts at 0. Wave 1 begins after the initial intermission.")]
-    public int currentRound = 0;
+    [SerializeField] private int currentRound = 0;
 
     [Header("Intermission")]
     [Tooltip("Wait this long AFTER the wave is fully cleared (all spawned + all dead).")]
     public float intermissionAfterClear = 15f;
 
     [Header("Spawning")]
+    [Tooltip("Spawn points placed around the scene.")]
     public Transform[] spawnPoints;
-    public GameObject[] mobPrefabs;      // Light/Medium/Heavy prefabs
-    public float spawnInterval = 0.5f;   // time between spawn attempts (zombies trickle)
+
+    [Header("Mob Prefabs (explicit, order-independent)")]
+    [Tooltip("Common early mob.")]
+    public GameObject lightPrefab;
+
+    [Tooltip("Medium mob (appears more as rounds increase).")]
+    public GameObject mediumPrefab;
+
+    [Tooltip("Heavy mob (rare early, common later).")]
+    public GameObject heavyPrefab;
+
+    [Tooltip("Time between spawn attempts (zombies trickle).")]
+    public float spawnInterval = 0.5f;
+
+    [Tooltip("Scaling rules for mob runtime stats per round.")]
     public MobWaveStatsSO waveScaling;
 
     [Header("Count Scaling")]
-    public int baseEnemyCount = 10;      // zombies-like: more per wave
+    [Tooltip("Total enemies spawned in wave 1.")]
+    public int baseEnemyCount = 10;
+
+    [Tooltip("Additional enemies added each wave.")]
     public int enemyCountGrowth = 3;
 
     [Header("Zombies Style")]
@@ -82,11 +100,13 @@ public class WaveManager : MonoBehaviour
             Debug.LogError("[WaveManager] No spawnPoints assigned.");
             return;
         }
-        if (mobPrefabs == null || mobPrefabs.Length == 0)
+
+        if (lightPrefab == null && mediumPrefab == null && heavyPrefab == null)
         {
-            Debug.LogError("[WaveManager] No mobPrefabs assigned.");
+            Debug.LogError("[WaveManager] No mob prefabs assigned (light/medium/heavy are all null).");
             return;
         }
+
         if (waveScaling == null)
         {
             Debug.LogError("[WaveManager] No waveScaling assigned.");
@@ -99,8 +119,6 @@ public class WaveManager : MonoBehaviour
         if (totalToSpawn < 0) totalToSpawn = 0;
 
         remainingToSpawn = totalToSpawn;
-
-        if (waveLoopRoutine != null) { /* just keeping reference; loop already running */ }
 
         // Start the trickle spawner
         if (!isSpawning)
@@ -134,12 +152,24 @@ public class WaveManager : MonoBehaviour
 
     private void SpawnMob(int round)
     {
+        if (spawnPoints == null || spawnPoints.Length == 0)
+        {
+            Debug.LogError("[WaveManager] SpawnMob called but spawnPoints is empty.");
+            return;
+        }
+
         Transform sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
         GameObject prefab = ChooseMobPrefab(round);
 
+        if (prefab == null)
+        {
+            Debug.LogError($"[WaveManager] ChooseMobPrefab returned null (round {round}). Check prefabs.");
+            return;
+        }
+
         GameObject obj = Instantiate(prefab, sp.position, sp.rotation);
 
-        // ✅ IMPORTANT: look on children too (common prefab hierarchy)
+        // Look on children too (common prefab hierarchy)
         global::Mob mob = obj.GetComponentInChildren<global::Mob>();
 
         // If the prefab isn't configured right, destroy it and DO NOT count it
@@ -157,34 +187,50 @@ public class WaveManager : MonoBehaviour
             return;
         }
 
-        // ✅ Only now do we count it as alive
+        // Only now do we count it as alive
         enemiesAlive++;
 
         var runtime = MobRuntimeStatBuilder.Build(mob.baseStats, waveScaling, round);
         mob.Init(runtime);
     }
 
+    /// <summary>
+    /// Zombies-style ramp:
+    /// - Rounds 1-3: mostly Light, small chance Medium
+    /// - Rounds 4-7: Light + Medium, small chance Heavy
+    /// - Round 8+: all three, Heavy becomes more common
+    /// This is order-independent because it uses explicit prefab fields.
+    /// </summary>
     private GameObject ChooseMobPrefab(int round)
     {
-        if (mobPrefabs.Length == 1) return mobPrefabs[0];
+        // Build a safe fallback chain in case some prefabs are missing
+        GameObject fallback = lightPrefab != null ? lightPrefab :
+                              (mediumPrefab != null ? mediumPrefab : heavyPrefab);
+
+        if (fallback == null)
+            return null;
 
         float r = Random.value;
 
-        // Simple weights (tweak later)
+        // Rounds 1-3
         if (round < 4)
         {
-            return mobPrefabs[0];
+            if (mediumPrefab != null && r < 0.15f) return mediumPrefab;
+            return fallback;
         }
+        // Rounds 4-7
         else if (round < 8)
         {
-            if (mobPrefabs.Length >= 2 && r < 0.30f) return mobPrefabs[1];
-            return mobPrefabs[0];
+            if (heavyPrefab != null && r < 0.10f) return heavyPrefab;
+            if (mediumPrefab != null && r < 0.50f) return mediumPrefab;
+            return fallback;
         }
+        // Round 8+
         else
         {
-            if (mobPrefabs.Length >= 3 && r < 0.20f) return mobPrefabs[2];
-            if (mobPrefabs.Length >= 2 && r < 0.50f) return mobPrefabs[1];
-            return mobPrefabs[0];
+            if (heavyPrefab != null && r < 0.35f) return heavyPrefab;
+            if (mediumPrefab != null && r < 0.75f) return mediumPrefab;
+            return fallback;
         }
     }
 
@@ -195,6 +241,8 @@ public class WaveManager : MonoBehaviour
         if (enemiesAlive < 0) enemiesAlive = 0;
     }
 
+    // Optional getters for UI/debug
+    public WaveState GetState() => state;
     public int GetEnemiesAlive() => enemiesAlive;
     public int GetRemainingToSpawn() => remainingToSpawn;
     public int GetCurrentRound() => currentRound;

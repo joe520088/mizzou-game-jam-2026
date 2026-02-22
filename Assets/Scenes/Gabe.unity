@@ -164,7 +164,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 625649390}
-  - component: {fileID: 625649391}
   m_Layer: 0
   m_Name: SP_1
   m_TagString: Untagged
@@ -187,24 +186,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 610121693}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &625649391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 625649389}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 781ce1f5cb9ab478089be04a92967cd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Game.Mobs.MobSpawner
-  minMobs: 3
-  maxMobs: 5
-  spawnPoints: []
-  mobPrefabs: []
-  spawnOnStart: 1
-  preventDuplicateSpawnPoints: 1
 --- !u!1 &1193335175
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,10 +255,9 @@ MonoBehaviour:
   - {fileID: 1950707853}
   - {fileID: 1624225231}
   - {fileID: 2056820173}
-  mobPrefabs:
-  - {fileID: 4399299249442672962, guid: caf246f2a47624c4c9a686ad70fb1f5a, type: 3}
-  - {fileID: 4399299249442672962, guid: ed3953c8db55f4f559a19e6c3044fd8b, type: 3}
-  - {fileID: 4399299249442672962, guid: a4a253cab4c55458ab0257a84bb418da, type: 3}
+  lightPrefab: {fileID: 4399299249442672962, guid: a4a253cab4c55458ab0257a84bb418da, type: 3}
+  mediumPrefab: {fileID: 4399299249442672962, guid: ed3953c8db55f4f559a19e6c3044fd8b, type: 3}
+  heavyPrefab: {fileID: 4399299249442672962, guid: caf246f2a47624c4c9a686ad70fb1f5a, type: 3}
   spawnInterval: 0.5
   waveScaling: {fileID: 11400000, guid: a7ef248a8c6a64c55936bfccd037f5d1, type: 2}
   baseEnemyCount: 5
@@ -293,64 +273,6 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.8578, y: -1.07412, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1572337649
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1572337651}
-  - component: {fileID: 1572337650}
-  m_Layer: 0
-  m_Name: MobSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1572337650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1572337649}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 781ce1f5cb9ab478089be04a92967cd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Game.Mobs.MobSpawner
-  minMobs: 3
-  maxMobs: 5
-  spawnPoints:
-  - {fileID: 625649390}
-  - {fileID: 1193335176}
-  - {fileID: 1950707853}
-  - {fileID: 1624225231}
-  - {fileID: 2056820173}
-  mobPrefabs:
-  - {fileID: 4399299249442672962, guid: caf246f2a47624c4c9a686ad70fb1f5a, type: 3}
-  - {fileID: 4399299249442672962, guid: a4a253cab4c55458ab0257a84bb418da, type: 3}
-  - {fileID: 4399299249442672962, guid: ed3953c8db55f4f559a19e6c3044fd8b, type: 3}
-  spawnOnStart: 1
-  preventDuplicateSpawnPoints: 1
---- !u!4 &1572337651
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1572337649}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.99, y: 2.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -592,5 +514,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 1597379207}
   - {fileID: 610121693}
-  - {fileID: 1572337651}
   - {fileID: 1213781762}
