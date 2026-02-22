@@ -35,6 +35,11 @@ public class ItemWorldObject : MonoBehaviour
         }
 
         gameObject.name = "Item_" + data.itemName;
+
+        // Pick a random angle between 0 and 360 degrees
+        float randomZ = Random.Range(0f, 360f);
+        // Apply it to the visual's local rotation
+        currentVisual.transform.localRotation = Quaternion.Euler(0, 0, randomZ);
     }
 
     IEnumerator SwitchRoutine()
