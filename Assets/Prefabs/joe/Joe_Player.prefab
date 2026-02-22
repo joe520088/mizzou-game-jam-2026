@@ -311,6 +311,7 @@ GameObject:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream:Assets/Prefabs/Mobs/joe/Joe_Player.prefab
   - component: {fileID: 8031144777937582003}
   - component: {fileID: 6912066292719754663}
@@ -319,6 +320,11 @@ GameObject:
   - component: {fileID: 1832456473502819802}
   - component: {fileID: 9147641911664592816}
 >>>>>>> Stashed changes:Assets/Prefabs/joe/Joe_Player.prefab
+=======
+  - component: {fileID: 7293279135287171298}
+  - component: {fileID: 1832456473502819802}
+  - component: {fileID: 9147641911664592816}
+>>>>>>> Stashed changes
 =======
   - component: {fileID: 7293279135287171298}
   - component: {fileID: 1832456473502819802}
@@ -414,11 +420,15 @@ MonoBehaviour:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream:Assets/Prefabs/Mobs/joe/Joe_Player.prefab
 --- !u!114 &8031144777937582003
 =======
 --- !u!114 &7293279135287171298
 >>>>>>> Stashed changes:Assets/Prefabs/joe/Joe_Player.prefab
+=======
+--- !u!114 &7293279135287171298
+>>>>>>> Stashed changes
 =======
 --- !u!114 &7293279135287171298
 >>>>>>> Stashed changes
@@ -447,11 +457,15 @@ MonoBehaviour:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream:Assets/Prefabs/Mobs/joe/Joe_Player.prefab
 --- !u!114 &6912066292719754663
 =======
 --- !u!114 &1832456473502819802
 >>>>>>> Stashed changes:Assets/Prefabs/joe/Joe_Player.prefab
+=======
+--- !u!114 &1832456473502819802
+>>>>>>> Stashed changes
 =======
 --- !u!114 &1832456473502819802
 >>>>>>> Stashed changes
@@ -475,8 +489,11 @@ MonoBehaviour:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream:Assets/Prefabs/Mobs/joe/Joe_Player.prefab
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -506,7 +523,10 @@ MonoBehaviour:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes:Assets/Prefabs/joe/Joe_Player.prefab
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
