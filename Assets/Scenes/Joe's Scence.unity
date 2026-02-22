@@ -258,6 +258,7 @@ MonoBehaviour:
   m_Version: 2
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!1 &131840491
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,6 +373,9 @@ MonoBehaviour:
   projectileSpeed: 10
   fireRate: 0.1
 --- !u!1001 &670221989
+=======
+--- !u!1001 &1356961191
+>>>>>>> Stashed changes
 =======
 --- !u!1001 &1356961191
 >>>>>>> Stashed changes
@@ -619,8 +623,12 @@ SceneRoots:
   - {fileID: 19151291}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   - {fileID: 670221989}
   - {fileID: 1981763740}
+=======
+  - {fileID: 1356961191}
+>>>>>>> Stashed changes
 =======
   - {fileID: 1356961191}
 >>>>>>> Stashed changes
