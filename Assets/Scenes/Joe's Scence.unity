@@ -381,6 +381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Hand
   heldItem: {fileID: 131840491}
+  heldItems: []
 --- !u!1001 &1477643787
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -612,6 +613,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1012886915}
     m_Modifications:
+    - target: {fileID: 2367822809459333205, guid: 612583ce832d9437b993a46ace21bfd3, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2367822809459333205, guid: 612583ce832d9437b993a46ace21bfd3, type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4924538159491362868, guid: 612583ce832d9437b993a46ace21bfd3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.82
