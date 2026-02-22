@@ -17,22 +17,13 @@ public class ItemSpawner : MonoBehaviour
 
     public void SpawnRandomItems()
     {
-        if (spawnPoints.Count == 0 || itemPool.Count == 0) return;
-
         foreach (Transform point in spawnPoints)
         {
-            // Pick a random item from the pool
             ItemData randomData = itemPool[Random.Range(0, itemPool.Count)];
+            GameObject newItem = Instantiate(baseItemPrefab, point.position, point.rotation);
 
-            // Spawn the base container
-            GameObject newItem = Instantiate(
-                baseItemPrefab,
-                point.position,
-                point.rotation
-            );
-
-            // Initialize the item with the random data
-            newItem.GetComponent<ItemWorldObject>().Setup(randomData);
+            // PASS BOTH the starting item AND the full list of items
+            newItem.GetComponent<ItemWorldObject>().Setup(randomData, itemPool);
         }
     }
 }

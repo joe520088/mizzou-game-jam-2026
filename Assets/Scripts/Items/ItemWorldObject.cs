@@ -1,28 +1,56 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemWorldObject : MonoBehaviour
 {
-    public ItemData itemData;
+    private ItemData currentData;
+    private List<ItemData> possibleItems; // To know what else it can turn into
     private GameObject currentVisual;
 
-    public void Setup(ItemData data)
-    {
-        itemData = data;
+    [Header("Switch Settings")]
+    public float minSwitchTime = 2.0f;
+    public float maxSwitchTime = 5.0f;
 
-        // Remove old visual if it exists (for switching logic)
+    public void Setup(ItemData data, List<ItemData> pool)
+    {
+        possibleItems = pool;
+        currentData = data;
+        ApplyVisual(data);
+
+        // Start the random switching loop
+        StartCoroutine(SwitchRoutine());
+    }
+
+    private void ApplyVisual(ItemData data)
+    {
+        // Remove old visual
         if (currentVisual != null) Destroy(currentVisual);
 
-        // Instantiate the visual model defined in the ScriptableObject
-        if (itemData.prefab != null)
+        // Spawn new visual from the Prefab slot in ItemData
+        if (data.prefab != null)
         {
-            currentVisual = Instantiate(
-                itemData.prefab,
-                transform.position,
-                transform.rotation,
-                transform
-            );
+            currentVisual = Instantiate(data.prefab, transform.position, transform.rotation, transform);
+            currentVisual.transform.localPosition = Vector3.zero;
         }
 
-        gameObject.name = "Item_" + itemData.itemName;
+        gameObject.name = "Item_" + data.itemName;
+    }
+
+    IEnumerator SwitchRoutine()
+    {
+        while (true)
+        {
+            // 1. Wait for a random amount of time between your constants
+            float waitTime = Random.Range(minSwitchTime, maxSwitchTime);
+            yield return new WaitForSeconds(waitTime);
+
+            // 2. Pick a new random item from the pool
+            if (possibleItems != null && possibleItems.Count > 0)
+            {
+                currentData = possibleItems[Random.Range(0, possibleItems.Count)];
+                ApplyVisual(currentData);
+            }
+        }
     }
 }
