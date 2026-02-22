@@ -256,11 +256,6 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 --- !u!1 &131840491
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,7 +288,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 780785503}
-  m_Father: {fileID: 1335410418}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &131840493
 SpriteRenderer:
@@ -363,9 +358,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 131840491}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88b42960cf7b04ef0bb6aba594736633, type: 3}
+  m_Script: {fileID: 11500000, guid: e1c9ec6a0ef574d65ad43c39c0aad99f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AutoGun
+  m_EditorClassIdentifier: Assembly-CSharp::Pistol
   weaponTransform: {fileID: 131840492}
   offset: 0
   damage: 10
@@ -373,89 +368,8 @@ MonoBehaviour:
   shotPoint: {fileID: 780785503}
   projectilePrefab: {fileID: 6569318652320664890, guid: 3c326816269194f0ca4e56127744e17f, type: 3}
   projectileSpeed: 10
-  fireRate: 0.1
---- !u!1001 &670221989
-=======
---- !u!1001 &1356961191
->>>>>>> Stashed changes
-=======
---- !u!1001 &1356961191
->>>>>>> Stashed changes
-=======
---- !u!1001 &1356961191
->>>>>>> Stashed changes
-=======
---- !u!1001 &1356961191
->>>>>>> Stashed changes
-=======
---- !u!1001 &1356961191
->>>>>>> Stashed changes
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6549253545344234895, guid: 11ba53a9631b04592b088fc97633eaf2, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6612971968222705317, guid: 11ba53a9631b04592b088fc97633eaf2, type: 3}
-      propertyPath: m_Name
-      value: Joe_Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8150917819298316994, guid: 11ba53a9631b04592b088fc97633eaf2, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.08175
-      objectReference: {fileID: 0}
-    - target: {fileID: 8150917819298316994, guid: 11ba53a9631b04592b088fc97633eaf2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.96018
-      objectReference: {fileID: 0}
-    - target: {fileID: 8150917819298316994, guid: 11ba53a9631b04592b088fc97633eaf2, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8150917819298316994, guid: 11ba53a9631b04592b088fc97633eaf2, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8150917819298316994, guid: 11ba53a9631b04592b088fc97633eaf2, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8150917819298316994, guid: 11ba53a9631b04592b088fc97633eaf2, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8150917819298316994, guid: 11ba53a9631b04592b088fc97633eaf2, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8150917819298316994, guid: 11ba53a9631b04592b088fc97633eaf2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8150917819298316994, guid: 11ba53a9631b04592b088fc97633eaf2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8150917819298316994, guid: 11ba53a9631b04592b088fc97633eaf2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 8150917819298316994, guid: 11ba53a9631b04592b088fc97633eaf2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 131840492}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6612971968222705317, guid: 11ba53a9631b04592b088fc97633eaf2, type: 3}
-      insertIndex: 5
-      addedObject: {fileID: 1801131464}
-  m_SourcePrefab: {fileID: 100100000, guid: 11ba53a9631b04592b088fc97633eaf2, type: 3}
+  magazineSize: 12
+  reloadTime: 1.5
 --- !u!1 &780785502
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,37 +401,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 131840492}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1335410418 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8150917819298316994, guid: 11ba53a9631b04592b088fc97633eaf2, type: 3}
-  m_PrefabInstance: {fileID: 670221989}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1801131458 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6612971968222705317, guid: 11ba53a9631b04592b088fc97633eaf2, type: 3}
-  m_PrefabInstance: {fileID: 670221989}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1801131464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1801131458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1c9ec6a0ef574d65ad43c39c0aad99f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Pistol
-  weaponTransform: {fileID: 0}
-  offset: 0
-  damage: 10
-  attackCooldown: 0.5
-  shotPoint: {fileID: 0}
-  projectilePrefab: {fileID: 0}
-  projectileSpeed: 10
-  magazineSize: 12
-  reloadTime: 1.5
 --- !u!1 &1981763738
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,25 +512,5 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 19151291}
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-  - {fileID: 670221989}
   - {fileID: 1981763740}
-=======
-  - {fileID: 1356961191}
->>>>>>> Stashed changes
-=======
-  - {fileID: 1356961191}
->>>>>>> Stashed changes
-=======
-  - {fileID: 1356961191}
->>>>>>> Stashed changes
-=======
-  - {fileID: 1356961191}
->>>>>>> Stashed changes
-=======
-  - {fileID: 1356961191}
->>>>>>> Stashed changes
+  - {fileID: 131840492}
