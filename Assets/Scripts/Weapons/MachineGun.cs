@@ -7,6 +7,11 @@ public class AutoGun : Gun
 
     protected override void Update()
     {
+        if (isEquipped == false)
+        {
+            return;
+        }
+
         base.Update();
         timer += Time.deltaTime;
 

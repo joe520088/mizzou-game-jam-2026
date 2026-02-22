@@ -28,7 +28,7 @@ public class Gun : Weapon
         }
         if (shotPoint == null)
         {
-            Debug.LogError($"[Gun] SpawnBullet failed: 'shotPoint' (Transform) is null on {gameObject.name}.");
+            Debug.LogError($"[Gun] SpawnBullet failed: 'shotPoint' (Transform) is null on yo mama.");
             return;
         }
 
@@ -66,7 +66,7 @@ public class Gun : Weapon
 
             if (audioManager != null)
             {
-                audioManager.Play(soundName);
+               // audioManager.Play(soundName);
             }
             else
             {
